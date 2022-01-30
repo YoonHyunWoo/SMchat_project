@@ -1,0 +1,23 @@
+{
+  "name": "smchat_project",
+  "version": "1.0.0",
+  "main": "socket.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YoonHyunWoo/SMchat_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YoonHyunWoo/SMchat_project/issues"
+  },
+  "homepage": "https://github.com/YoonHyunWoo/SMchat_project#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.2",
+    "socketio": "^1.0.0"
+  }
+}
