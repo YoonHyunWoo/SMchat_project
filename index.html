@@ -19,6 +19,8 @@
   <input id="myChat" type="text" style="position: fixed; bottom: 0px; width: 52vw; left: 0px; border: 7.6px inset gray;">
   <p style="position: fixed; bottom: 0px; width: 5.5vw; right: 0px; border: 6px inset gray; margin-bottom: 0px; margin-top: 0px; text-align: center;">전송</p>
   <script>
+    var first_Name = ["신비한","이상한","요상한","일그러진","매혹적인","명섭적인","오징어같은","냄새나는","유명한","신형만"];
+    var Last_Name = ["강아지","고양이","코뿔소","하마","오징어","여우","늑대","스컹크","하마","원숭이"];
     // 1. locahost:3000에 연결한다
     var socket = io.connect('http://localhost:3001');
 
@@ -29,8 +31,19 @@
 
     $("#myChat").on("keyup", function () {
       if (window.event.keyCode == 13) {
+        var random_Number1 = Math.floor(Math.random()*10)
+        var random_Number2 = Math.floor(Math.random()*10)
+        var TextNum = first_Name[random_Number1].length + Last_Name[random_Number2].length
+        var spacebar = "";
+
+        for(i = 0; i<=7-TextNum; i++){
+          spacebar += "ㅤ";
+        }
+        
+        console.log(spacebar);
+
         //서버에 보냄 msg이벤트 데이타로 실어서
-        $("#chatContent").append(`나 : ${$(this).val()}<br>`);
+        $("#chatContent").append(`${first_Name[random_Number1]} ${Last_Name[random_Number2]} ${spacebar} : ${$(this).val()}<br>`);
         socket.emit('msg', $(this).val());
         $(this).val("");
       }
